@@ -65,3 +65,18 @@ window.onload = function() {
   });
 
 }
+
+function storeSong(track, artwork) {
+
+localStorage.doveTune__trackFour = localStorage.doveTune__trackThree;
+localStorage.doveTune__trackThree = localStorage.doveTune__trackTwo;
+localStorage.doveTune__trackTwo = localStorage.doveTune__trackOne;
+localStorage.doveTune__trackOne = track;
+
+localStorage.doveTune__artworkFour = localStorage.doveTune__artworkThree;
+localStorage.doveTune__artworkThree = localStorage.doveTune__artworkTwo;
+localStorage.doveTune__artworkTwo = localStorage.doveTune__trackOne;
+localStorage.doveTune__artworkOne = artwork;
+
+
+}
