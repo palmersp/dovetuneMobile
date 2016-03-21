@@ -36,30 +36,31 @@ public class SignIn extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       ConfigurationBuilder cb = new ConfigurationBuilder();
-cb.setDebugEnabled(true)
-  .setOAuthConsumerKey("Djgh7AmnNzxmv7fXzqlsdj8RB")
-  .setOAuthConsumerSecret("Mnj40YllwKBBZvOkndnrmxl1TaNvcnS0x40PFhhDnMHysgzHum");
+//        ConfigurationBuilder cb = new ConfigurationBuilder();
+//        cb.setDebugEnabled(true)
+//                .setOAuthConsumerKey()
+//                .setOAuthConsumerSecret();
+//
+//        Twitter twitter = new TwitterFactory(cb.build()).getInstance();
+        
+        Twitter twitter = new TwitterFactory().getInstance();
 
-Twitter twitter = new TwitterFactory(cb.build()).getInstance();
+        request.getSession().setAttribute("twitter", twitter);
+        try {
+            StringBuffer callbackURL = request.getRequestURL();
+            System.out.println("TwitterLoginServlet:callbackURL:" + callbackURL);
 
-request.getSession().setAttribute("twitter", twitter);
-try {
-StringBuffer callbackURL = request.getRequestURL();
-System.out.println( "TwitterLoginServlet:callbackURL:" + callbackURL );
+            int index = callbackURL.lastIndexOf("/");
+            callbackURL.replace(index, callbackURL.length(), "").append("/Callback");
 
-int index = callbackURL.lastIndexOf("/");
-callbackURL.replace(index, callbackURL.length(), "").append("/Callback");
- 
-RequestToken requestToken = twitter.getOAuthRequestToken(callbackURL.toString());
-request.getSession().setAttribute("requestToken", requestToken);
-System.out.println( "requestToken.getAuthenticationURL():" + requestToken.getAuthenticationURL() );
-response.sendRedirect(requestToken.getAuthenticationURL());
+            RequestToken requestToken = twitter.getOAuthRequestToken(callbackURL.toString());
+            request.getSession().setAttribute("requestToken", requestToken);
+            System.out.println("requestToken.getAuthenticationURL():" + requestToken.getAuthenticationURL());
+            response.sendRedirect(requestToken.getAuthenticationURL());
 
- 
-} catch (TwitterException e) {
-throw new ServletException(e);
-}
+        } catch (TwitterException e) {
+            throw new ServletException(e);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
