@@ -14,3 +14,4 @@ hs_err_pid*
 
 # Directories #
 DoveTune/target/
+DoveTune/src/main/resources
