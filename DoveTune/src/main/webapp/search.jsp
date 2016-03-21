@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : experimentalSearch
     Created on : Mar 13, 2015, 5:49:00 PM
     Author     : adam
@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Search</title>
         <link href="tanga.css" type="text/css" rel="stylesheet" media="screen" />
-        <script src="http://connect.soundcloud.com/sdk.js"></script> 
+        <script src="http://connect.soundcloud.com/sdk.js"></script>
         <style>
             .resultdiv {
                 background-color: #edece0;
@@ -49,7 +49,7 @@
                         console.log(tracks[i]);
 
                         diva = document.createElement('div');
-                        
+
                         a = document.createElement('a');
                         a.href = "SearchTwitter?soundcloudUrl=" + permalink + "&songName=" + title;
                         a.innerHTML = title;
@@ -57,8 +57,8 @@
                         img.src = artwork_url;
                         img.alt = "Image Unavailable";
                         a.appendChild(document.createElement('br'));
-                        img.setAttribute("width", "30%");            
-                        a.appendChild(img);            
+                        img.setAttribute("width", "30%");
+                        a.appendChild(img);
                         diva.setAttribute("class","resultdiv");
                         diva.appendChild(document.createElement('hr'));
                         diva.appendChild(a);
@@ -66,14 +66,14 @@
                     }
                 });
             };
-            
+
             function getParameterByName(name) {
                 name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
                 var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
                     results = regex.exec(location.search);
                 return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
             }
-            
+
         </script>
         <div id="searchdiv" style=" min-width: 700px;max-width: 700px; border: solid;" >
             <%
@@ -88,8 +88,8 @@
                 out.write("<h1 style=\"text-align: center;\"><a href=\"SignIn\">Sign In to Twitter</a></h1>");
                 }
             %>
-                    
-                
+
+
             <form action="search.jsp" method="GET">
                 <input type="text" name="searchbox" id="search_box">
                 <input type="submit" value="Search">
