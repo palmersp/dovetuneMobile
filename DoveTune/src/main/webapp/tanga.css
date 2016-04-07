@@ -296,3 +296,35 @@ input[type=text]{
     width: 87%;
     margin-bottom: 2px;
 }
+
+#searchdiv{
+    min-width: 700px;
+    max-width: 700px; 
+    border: solid;
+}
+
+@media screen and (max-width: 550px){
+    input[type=text]{
+        width: 85%;
+    }
+}
+@media screen and (max-width: 440px){
+    input[type=text]{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 330px){
+    input[type=text]{
+        width: 75%;
+    }
+}
+@media screen and (max-width: 700px){
+    html{
+        display: block;
+    }
+    #searchdiv{
+        width: 100vw;
+        max-width: 100vw;
+        min-width: 100vw;
+    }
+}

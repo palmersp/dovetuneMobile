@@ -10,6 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Search</title>
         <link href="tanga.css" type="text/css" rel="stylesheet" media="screen" />
         <script src="http://connect.soundcloud.com/sdk.js"></script>
@@ -75,7 +76,7 @@
             }
 
         </script>
-        <div id="searchdiv" style=" min-width: 700px;max-width: 700px; border: solid;" >
+        <div id="searchdiv">
             <%
                Twitter twitter = (Twitter)request.getSession().getAttribute("twitter");
                     if (twitter != null){
