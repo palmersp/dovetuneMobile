@@ -80,8 +80,8 @@
                 }
             %>
             <form action="search.jsp" method="GET">
-                <input type="text" size="100%" name="searchbox" id="search_box">
-                <input type="submit" value="Search">
+                <input type="text" size="100%" name="searchbox" id="search_box" placeholder="Search your favorite Artist or Song!">
+                <input type="submit" value="Find Music">
             </form>
             <div style="border: solid;">
                 <h2 style="text-align: center;">${param.songName}</h2>

@@ -92,8 +92,8 @@
 
 
             <form action="search.jsp" method="GET">
-                <input type="text" name="searchbox" id="search_box">
-                <input type="submit" value="Search">
+                <input type="text" name="searchbox" id="search_box" placeholder="Search your favorite Artist or Song!">
+                <input type="submit" value="Find Music">
             </form>
         </div>
     </body>
